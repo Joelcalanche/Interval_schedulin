@@ -1,0 +1,56 @@
+Problem Description
+
+ Given a list of jobs which has a start, finish time and profit/weight associated with it: we want to find the subset with the maximum weight where each job is disjoint ( the jobs cannot occur at the same time)
+
+ Notation
+
+ for a job i we have [si, fi, wi]
+
+
+ Idea: if we assume we only look at the last job when having sorted the jobs by finish time, then either we pick it or we don't
+
+
+Case 1 (We pick it): Then we need to remove all overlapping jobs and compute the solution for the subproblem of the jobs left
+
+Case 2 (we don't pick it): Then we simply compute optimal solution for the subproblem with n -1 items left
+
+
+We can do this recursively for j =1, 2, ...., n and we define OPT(j) = "Maximum weight that can be achieved by selecting the jobs from first intervals"
+
+Removing overlapping intervals
+
+Let's define a help function: let p(j) be the largest index i such that fi<= sj. This function is useful to remove overlapping jobs. Let's understand this function with an example
+
+
+Recursion formula
+
+
+Let us combine the two cases into a recursion formula, and we want to pick whichever is best
+
+OTP(j) = max {wi + OPT(p(j), OTP(j-1))}
+
+
+With base case: OPT(0) = 0 
+
+Now let's gain some more intuition by seeing how we use this algorithm on the same example. 
+
+
+Finding optimal items
+
+What we then want to return is OPT(n) which is the maximum weight for all items.
+
+
+The solution for finding which items we picked is backtracking, simply if wj + OPT(p(j)) >= OPT(j-1) then we add item j to optimal solution and look at OPT(p(j)) else we ignore this item and look at subproblem OPT(j-1)
+
+Time Complexity:
+* Sorting is O(nlogn)
+
+* Finding p(j), j = 1,2 ..., n has time complexity O(nlogn)(clever use of binary search)
+
+
+* To find maximal weight(when p found): O(n)
+
+* Bactrack to  find optimal itemns : O(n)
+
+
+total = O(nlogn)

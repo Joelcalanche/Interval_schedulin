@@ -1,0 +1,124 @@
+
+
+
+
+
+
+- Describe the problem
+
+- Come up with a solution
+
+- Give the pseudocode of our solution
+
+- Prove our solution to the problem
+
+
+Imagine:
+* You have 10 activities you can do today.
+
+* You can only do 1 activity at the same time
+
+So you'd like a shedule that maximizes the amount of activities
+
+
+Formally:
+- Every activity j starts at s_j and finishes at f_j.
+
+- two activities n and m are compatible if they don't overlap So what is the maximum subset of compatible activities?
+
+
+The key to the solution, in order to get the optimal set, is to
+
+
+Sort all activities ascending on their finishing time(f_j),
+so f_1 <= f_2 <=.... <f_n.
+
+
+Give the pseudocode of our  solution
+
+1.  Sort all activities by their finishing time so that f_1 <=f_2....
+
+2. Initially, A <- empty set
+
+for j = 1 to n {
+	if(activity j is compatible with A)
+		Add j to A
+	endIf
+
+endFor
+
+Return A
+}
+
+
+
+
+
+
+Scheduling to Minimize Maximun lateness
+
+
+- Describe the problem
+
+- Come up with a solution
+
+- Give the pseudocode of our solution
+
+- Prove our solution to the problem
+
+
+
+
+Imagine:
+
+- You're a student and started a bit late on doing your assignments..
+
+- You have to do 5  assignments, each has an expected duration and deadline
+
+- If you start on an assigment, you have to keep working on it until you've finished it
+
+* you want to minimize the maximum lateness of handing in your assignments
+
+
+So you'd like a schedule that minimizes the maximum lateness.
+
+
+Formally:
+
+- Every assignment j has an expected duration t_j and a deadline d_j.
+
+- If assigment j starts at s_j, then it finishes at f_j = s_j + t_j.
+
+- The lateness of an assignment j is defined by  l_j = max(0, f_j - d_j)
+
+
+So you'd like a schedule that minimizes the maximum lateness L = max l_j
+
+
+They key to the solution. In ortder to reach the minimun maximun lateness, is to :
+
+Sort all assignments ascending on their deadline (d_j), so d_1 <= d_2 <= d_n
+
+
+
+# exam
+
+r1 = (0, 3)
+
+r2 = (1, 3)
+
+r4 = (0, 5)
+
+r5 = (3, 6)
+
+r6 = (4, 7)
+
+r7 = (5, 10)
+
+
+r8 = (8, 10)
+
+
+R = [r1, r2, r3, r4, r5, r6, r7, r8]
+
+import
