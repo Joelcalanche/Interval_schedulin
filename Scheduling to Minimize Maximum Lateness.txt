@@ -1,0 +1,69 @@
+scheduling to Minimize Maximum Lateness
+
+-Describe the problem
+
+- Come up with a solution
+
+- Give the pseudocode of our solution
+
+- Prove our solution to the problem
+
+Imagine:
+
+* You're a student and started a bit late on doing your assignments.
+
+* You have to do 5 assignments, each has an expected duration and deadline
+
+
+-If you start on assigment, you have to keep working on it until you've finished it.
+
+* You wanto to minimize th maximun lateness of handing in your assignments
+
+
+Formally:
+
+-Every assignment j has an expected duration t_j and a deadline d_j.
+- If assignment j starts at s_j, then it finishes at f_j = s_j + t_j.
+
+- The lateness of an assignment j is defined by l_j = max( 0, f_j-d_j)
+
+
+So you'd like a schedule that minimizes the maximum lateness L = max l_j
+
+
+They key to the solution, in order to reach the minimum maximum lateness, is to:
+
+Sort all assignments ascending on their deadline(d_j);
+
+so d_1 <= d_2 <=.....<=dn
+
+
+Give the pseudocode of our solution
+
+
+1. Sort all assignments by their dealine so thad d_1 <= d_2 <= d_n
+
+Use this order for:
+
+2. Initially, t = 0
+
+3. Initially, A = (empty set)
+
+4. For j=1 to n do
+
+5. s_j = t
+
+6. f_j = t + t_j
+
+Add[s_j, f_j] to A
+
+t = f_j
+
+endFor
+
+Return A 
+
+
+
+
+Time complexity nlog(n)
