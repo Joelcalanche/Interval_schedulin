@@ -57,15 +57,20 @@ def minimize_lateness(ttimes, dtimes):
 
 
 
-t1 = (0, 2, 7)
+t1 = (0, 1, 8)
 
-t2 = (1, 3, 4)
+t2 = (1, 2, 7)
 
-t3 = (0, 1, 8)
+t3 = (2, 2, 10)
 
-t4 = (3, 4, 8)
+t4 = (3, 3, 4)
 
-t5 = (4, 2, 10)
+t5 = (4, 4, 8)
+
+"""
+orden correcto  minima latencia = t4=(3, 4),  t2= ( 2, 7), t1=(1, 8), t5=( 4, 8), t3=(2, 10); L=2 
+indices ---------------------------3, 1,  0, 4, 2
+"""
 
 
 
@@ -77,8 +82,9 @@ T = [t1, t2, t3, t4, t5]
 
 T_ = [t[1:] for t in T]
 
+for t in T:
+    print(f"tarea{t[0]} con duracion {t[1]}, y deadline {t[2]}\n")
 
-print(T_)
 print("duracion")
 ttimes = [t[1] for t in T]
 print(ttimes)
@@ -86,10 +92,12 @@ print("deadline")
 dtimes = [t[2] for t in T]
 print(dtimes)
 
+
+
 min_lateness, schedule = minimize_lateness(ttimes, dtimes)
 
 print('The minimum maximum lateness:', min_lateness)
-print('The order in which the requests should be scheduled:', schedule)
+print('The order in which the requests should be scheduled (index):', schedule)
 
 
  
@@ -102,5 +110,3 @@ print('The order in which the requests should be scheduled:', schedule)
 # dtimes = [int(dt) for dt in dtimes]
  
 # min_lateness, schedule = minimize_lateness(ttimes, dtimes)
-
-
